@@ -1,6 +1,7 @@
 import { useState } from "react"
 import {FaMapMarker} from 'react-icons/fa'
 import { Link } from "react-router-dom";
+import { motion, scale } from "framer-motion";
 
 const JobListing = ({job}) => {
   const [showFullDescription, setShowFullDescription] = useState(false)
@@ -11,7 +12,14 @@ const JobListing = ({job}) => {
     
   }
   return (
-    <div className="bg-white rounded-xl shadow-md relative">
+    <motion.div 
+      className="bg-white rounded-xl shadow-md relative"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: "spring", stiffness: 100, damping: 10 }}
+
+    >
             <div className="p-4">
               <div className="mb-6">
                 <div className="text-gray-600 my-2">{job.type}</div>
@@ -40,7 +48,7 @@ const JobListing = ({job}) => {
                 >Read more</Link>
               </div>
             </div>
-          </div>
+          </motion.div>
   )
 }
 

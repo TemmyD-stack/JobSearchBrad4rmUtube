@@ -1,4 +1,6 @@
 import React from 'react'
+import { motion } from "framer-motion";
+
 
 const Hero = ({
     title='Become a React Dev', 
@@ -8,14 +10,20 @@ const Hero = ({
       <div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center"
       >
-        <div className="text-center">
+        <motion.div 
+          className="text-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        
+        >
           <h1
             className="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl"
           >{title}</h1>
           <p className="my-4 text-xl text-white">
             {subtitle}
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
